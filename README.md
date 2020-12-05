@@ -71,3 +71,40 @@ console.log('render');
 - **Run useEffect only for onMount then empty the array**
 
 ### useRef Hook [more](https://youtu.be/t2ypzz6gJm0)
+
+### useContext [more](https://youtu.be/5LrDIWkK_Bc)
+
+With the context API you can specify certain pieces of data that will be available to all components nested inside the context with no need to pass this data through each component.
+
+Context has two part - Provider & Consumer
+
+1. **Provider** - provides a value to all components nested inside of it.
+
+2. **Consumer** - you must wrap your code in to access the value of the context.
+
+Steps:
+
+- Create a file with which contains all the logic to handle context provider
+
+- **Provider Code**
+
+```
+const ThemeContext = React.createContext()
+
+function ThemeProvider({children}) {
+  const [theme, setTheme] = useState('dark')
+
+  return (
+    <ThemeContext.Provider value={{ theme, setTheme }}>
+      {children}
+    </ThemeContext.Provider>
+  )
+}
+
+```
+
+with the help of Theme.Provider ,we are passing value theme & setTheme & they can be accessed by any child
+
+- **Consumer Code**
+
+  `const { theme, setTheme } = useContext(ThemeContext)`
