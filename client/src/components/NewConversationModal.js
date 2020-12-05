@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { Modal, Form, Button } from "react-bootstrap";
 
 import { useContacts } from "../contexts/ContactsProvider";
-// import { useConversations } from "../contexts/ConversationsProvider";
+import { useConversations } from "../contexts/ConversationsProvider";
 
 function NewConversationsModal({ closeModal }) {
   const [selectedContactIds, setselectedContactIds] = useState([]);
   const { contacts } = useContacts();
-  // const { conversations } = useConversations();
+  const { createConversation } = useConversations();
   const handleCheckboxChange = (contactId) => {
     setselectedContactIds((prevSelectedContactIds) => {
       // if id is already in the list then return a list that doesnt have it
@@ -21,11 +21,17 @@ function NewConversationsModal({ closeModal }) {
       }
     });
   };
-  const handleSubmit = (e) => {
+  function handleSubmit(e) {
     e.preventDefault();
-    // createConversation(selectedContactIds);
+
+    createConversation(selectedContactIds);
     closeModal();
-  };
+  }
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   createConversation(selectedContactIds);
+  //   closeModal();
+  // };
   return (
     <>
       <Modal.Header closeButton>Create New Conversation</Modal.Header>

@@ -18,7 +18,7 @@ function SideBar({ id }) {
   return (
     <div style={{ width: "400px" }} className="d-flex flex-column">
       <Tab.Container activeKey={activeKey} onSelect={setActiveKey}>
-        <Nav variant="pills" className="justify-content-center">
+        <Nav variant="tabs" className="justify-content-center">
           <Nav.Item>
             <Nav.Link eventKey={CONVERSATIONS_KEY}>Conversations</Nav.Link>
           </Nav.Item>
