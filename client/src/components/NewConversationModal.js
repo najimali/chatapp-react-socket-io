@@ -21,17 +21,11 @@ function NewConversationsModal({ closeModal }) {
       }
     });
   };
-  function handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
-
     createConversation(selectedContactIds);
     closeModal();
-  }
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   createConversation(selectedContactIds);
-  //   closeModal();
-  // };
+  };
   return (
     <>
       <Modal.Header closeButton>Create New Conversation</Modal.Header>
@@ -41,6 +35,7 @@ function NewConversationsModal({ closeModal }) {
             <Form.Group controlId={contact.id} key={contact.id}>
               <Form.Check
                 type="checkbox"
+                // it return true or false
                 value={selectedContactIds.includes(contact.id)}
                 label={contact.name}
                 onChange={() => handleCheckboxChange(contact.id)}

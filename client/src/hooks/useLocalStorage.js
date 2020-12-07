@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 // We are creating a local storage so that our Id persistate
 //@params:
 // key- It is going to what we stire inside a local storage
-// initialValue - It is what we are passing to useState
+// initialValue - It is what we are passing to useState it is string for id & array for contacts & conversations.
 
 const PREFIX = "chatapp-react-";
 function useLocalStorage(key, initialValue) {

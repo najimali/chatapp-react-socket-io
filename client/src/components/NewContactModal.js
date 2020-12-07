@@ -8,6 +8,7 @@ function NewContactsModal({ closeModal }) {
   const { createContact } = useContacts();
   const handleSubmit = (e) => {
     e.preventDefault();
+    // creating new contacts.
     createContact(idRef.current.value, nameRef.current.value);
     closeModal();
   };
