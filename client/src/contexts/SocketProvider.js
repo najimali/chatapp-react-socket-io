@@ -10,10 +10,12 @@ export function useSocket() {
 export function SocketProvider({ id, children }) {
   const [socket, setSocket] = useState();
 
+  // We are only creating our socket when we initially load our page of
+  //id changed or new
   useEffect(() => {
     const newSocket = io("http://localhost:5000", { query: { id } });
     setSocket(newSocket);
-
+    // cleaning the socket when component is unmounted
     return () => newSocket.close();
   }, [id]);
 
